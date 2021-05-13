@@ -16,8 +16,7 @@ Add the bump public key, go to the sign page and replace the secret key that sho
 
 Bump Sequence
 
-This is when you want to jump a transaction ahead in your own sequence timeline to invalid 
-
+This is when you want to jump a transaction ahead in your own sequence timeline. 
 Bum sequence is when you want 1 operation to invalid a bunch of other possible operations. 
 
 For this there is a bump sequence operation
@@ -27,3 +26,17 @@ then add a bump sequence operation
   the number has to be greater than your transaction sequence number
   the source account is your own account
 on the next page sign with your private key
+
+
+Adding a passphrase as an alternative signer. 
+
+  Set up an add options operation for the account
+  convert the passphrase to sha256 using any online converter
+  set the weight to 1 - this means this signer has the same importance as the account secret key and either can be used. 
+  Sign the transaction with the account private key
+  
+  When you want to use the passphrase to sign a transaction 
+  You have to convert it to hexadecimal to be accepted by the signing field.  Use any online text to  hex converter. 
+  
+  
+
