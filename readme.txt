@@ -39,4 +39,23 @@ Adding a passphrase as an alternative signer.
   You have to convert it to hexadecimal to be accepted by the signing field.  Use any online text to  hex converter. 
   
   
+Pre-authorized transactions
 
+  The purpose of a pre-authorised transaction is to create a transaction that is activated by the recipient, 
+  thus "pre authorized"
+  
+    Create a transaction with a sequence number + 1, 
+    You don't have to sign or submit this transaction, copy the hash and the xdr
+    
+    Create another transaction with the default sequence number (it will be ordered before the above one) 
+    operation set options
+      signer type = pre authorized transaction
+      past the hash 
+      set the weight to 1
+      
+    sign and submit as usual 
+    
+    the recipient can activate the transaction having been given the XDR
+    paste it into the endpoints, transactions, post transaction. 
+    
+  
