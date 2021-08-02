@@ -59,3 +59,29 @@ Pre-authorized transactions
     paste it into the endpoints, transactions, post transaction. 
     
   
+
+Sponsoring future reserves
+
+  This allows an account to pay the base reserve(funding) for another account
+  so you can create an account with balance 0, 
+  
+  To do this with create account:
+  
+      A normal transaction with source account
+      
+      1. Begin sponsoring future reserves
+          sponsored ID is the account you're going to create
+      2. Create account
+          destination is the account you're going to create
+      3. end sponsoring future reserves
+          source account is the account you've just created
+          
+      Then sign the transaction with the private key of both accounts. 
+      
+      
+          
+          
+  
+
+
+
