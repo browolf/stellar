@@ -1,6 +1,6 @@
-Notes on Stellar operations
+# Notes on Stellar operations
 
-Fee Bump
+## Fee Bump
 
 If you sent someone 100 xlm, they'd receive 100 minus the transaction fee. 
 There might be a circumstance where you'd want to send 100 and them receive 100. 
@@ -14,7 +14,7 @@ after signing the transaction there's a "wrap with fee bump" option.
 This takes the xdr of the payment operation and gives it to the fee bump operation. 
 Add the bump public key, go to the sign page and replace the secret key that shows with the secret key from the bump account
 
-Bump Sequence
+## Bump Sequence
 
 This is when you want to jump a transaction ahead in your own sequence timeline. 
 Bum sequence is when you want 1 operation to invalid a bunch of other possible operations. 
@@ -39,7 +39,7 @@ Adding a passphrase as an alternative signer.
   You have to convert it to hexadecimal to be accepted by the signing field.  Use any online text to  hex converter. 
   
   
-Pre-authorized transactions
+## Pre-authorized transactions
 
   The purpose of a pre-authorised transaction is to create a transaction that is activated by the recipient, 
   thus "pre authorized"
@@ -60,7 +60,7 @@ Pre-authorized transactions
     
   
 
-Sponsoring future reserves
+## Sponsoring future reserves
 
   This allows an account to pay the base reserve(funding) for another account
   so you can create an account with balance 0, 
