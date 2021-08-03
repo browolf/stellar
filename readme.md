@@ -23,40 +23,40 @@ For this there is a bump sequence operation
 
 create a normal  operation
 then add a bump sequence operation
-  the number has to be greater than your transaction sequence number
-  the source account is your own account
+the number has to be greater than your transaction sequence number
+the source account is your own account
 on the next page sign with your private key
 
 
-Adding a passphrase as an alternative signer. 
+## Adding a passphrase as an alternative signer. 
 
-  Set up an add options operation for the account
-  convert the passphrase to sha256 using any online converter
-  set the weight to 1 - this means this signer has the same importance as the account secret key and either can be used. 
-  Sign the transaction with the account private key
+Set up an add options operation for the account
+convert the passphrase to sha256 using any online converter
+set the weight to 1 - this means this signer has the same importance as the account secret key and either can be used. 
+Sign the transaction with the account private key
   
-  When you want to use the passphrase to sign a transaction 
-  You have to convert it to hexadecimal to be accepted by the signing field.  Use any online text to  hex converter. 
+When you want to use the passphrase to sign a transaction 
+You have to convert it to hexadecimal to be accepted by the signing field.  Use any online text to  hex converter. 
   
   
 ## Pre-authorized transactions
 
-  The purpose of a pre-authorised transaction is to create a transaction that is activated by the recipient, 
-  thus "pre authorized"
+The purpose of a pre-authorised transaction is to create a transaction that is activated by the recipient, 
+thus "pre authorized"
   
-    Create a transaction with a sequence number + 1, 
-    You don't have to sign or submit this transaction, copy the hash and the xdr
+Create a transaction with a sequence number + 1, 
+You don't have to sign or submit this transaction, copy the hash and the xdr
     
-    Create another transaction with the default sequence number (it will be ordered before the above one) 
-    operation set options
-      signer type = pre authorized transaction
-      past the hash 
-      set the weight to 1
+Create another transaction with the default sequence number (it will be ordered before the above one) 
+operation set options
+signer type = pre authorized transaction
+past the hash 
+set the weight to 1
       
-    sign and submit as usual 
+sign and submit as usual 
     
-    the recipient can activate the transaction having been given the XDR
-    paste it into the endpoints, transactions, post transaction. 
+the recipient can activate the transaction having been given the XDR
+paste it into the endpoints, transactions, post transaction. 
     
   
 
@@ -67,14 +67,14 @@ Adding a passphrase as an alternative signer.
   
   To do this with create account:
   
-      A normal transaction with source account
+A normal transaction with source account
       
-      1. Begin sponsoring future reserves
-          sponsored ID is the account you're going to create
-      2. Create account
-          destination is the account you're going to create
-      3. end sponsoring future reserves
-          source account is the account you've just created
+1. Begin sponsoring future reserves
+sponsored ID is the account you're going to create
+2. Create account
+destination is the account you're going to create
+3. end sponsoring future reserves
+source account is the account you've just created
           
-      Then sign the transaction with the private key of both accounts. 
+Then sign the transaction with the private key of both accounts. 
       
