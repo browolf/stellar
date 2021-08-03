@@ -60,7 +60,7 @@ paste it into the endpoints, transactions, post transaction.
     
   
 
-## Sponsoring future reserves
+## Sponsoring future reserves (create account)
 
   This allows an account to pay the base reserve(funding) for another account
   so you can create an account with balance 0, 
