@@ -58,28 +58,6 @@ sign and submit as usual
 the recipient can activate the transaction having been given the XDR
 paste it into the endpoints, transactions, post transaction. 
     
-  
-
-## Sponsoring future reserves (create account)
-
-  This allows an account to pay the base reserve(funding) for another account
-  so you can create an account with balance 0, 
-  
-  To do this with create account:
-  
-A normal transaction with source account
-      
-1. Begin sponsoring future reserves
-sponsored ID is the account you're going to create
-2. Create account
-destination is the account you're going to create
-3. end sponsoring future reserves
-source account is the account you've just created
-          
-Then sign the transaction with the private key of both accounts. 
-      
- 
-
 ## Sponsoring future reserves (create account)
 
   This allows an account to pay the base reserve(funding) for another account
@@ -100,52 +78,54 @@ Then sign the transaction with the private key of both accounts.
       
 ## Create and claim claimable balance
 
-1. generate 2 funded keypairs designated sender and receiver
-2. build transaction
-	source account = sender public key
-	fetch next sequence number
-	operation type = create claimable balance
-	asset = native
-	amount = whatevet 101
-	claimants
-		destination = receiver public key
-		predicate = conditional 
-		predicate type = not
-		not predicate = conditional
-		predicate type = time 
-		time type = relative
-		time value = 300
-		(i.e. not before 300 seconds) 
-	at the bottom sign in transaction signer
-3. add senders secret key
-	at bottom submit in transaction submitter
-4. submit transaction
-	"transaction succeeded with 1 operations
+generate 2 funded keypairs designated sender and receiver
+
+build transaction
+1. source account = sender public key
+2. fetch next sequence number
+3. operation type = create claimable balance
+4. asset = native
+5. amount = whatevet 101
+6. claimants
+7. destination = receiver public key
+8. predicate = conditional 
+9. predicate type = not
+10. not predicate = conditional
+11. predicate type = time 
+12. time type = relative
+13. time value = 30 (i.e. not before 300 seconds) 
+14. at the bottom sign in transaction signer
+
+add senders secret key
+1. at bottom submit in transaction submitter
+
+submit transaction
+1. "transaction succeeded with 1 operations
 
 wait 5 mins
 
-5. explore endpoints
-	select resource = claimable balance
-	all claimable balances
-	sponsor = sender public key 
-	submit
-	find and copy id e.g. 000000002e5bdf568c53a17f54b4957bf571c4aa6f5f7ec4471403de3754257270a60744
+explore endpoints
+1. select resource = claimable balance
+2. all claimable balances
+3. sponsor = sender public key 
+4. submit
+5. find and copy id e.g. 000000002e5bdf568c53a17f54b4957bf571c4aa6f5f7ec4471403de3754257270a60744
 
-6. build a transaction
-	source account = receiver public key 
-	fetch next sequence number
-	operation type = claim claimable balance
-	claimable balance id = paste id from #5
-	at bottom sign in transaction signer
-7. add receivers secret key
-	at bottom submit in transaction submitter
-8. submit transaction
-	"transaction succeeded with 1 operations
+build a transaction
+1. source account = receiver public key 
+2. fetch next sequence number
+3. operation type = claim claimable balance
+4. claimable balance id = paste id from #5
+5. at bottom sign in transaction signer
+6. add receivers secret key
+7. at bottom submit in transaction submitter
 
-9. explore endpoints
-	accounts
-	single account
-	account id = receiver public key
-	check balance - amount minus transaction fee
+submit transaction
+1. "transaction succeeded with 1 operations
+
+explore endpoints
+1. accounts > single account
+2. account id = receiver public key
+3. check balance - amount minus transaction fee
 		
 	
