@@ -85,7 +85,7 @@ build transaction
 2. fetch next sequence number
 3. operation type = create claimable balance
 4. asset = native
-5. amount = whatevet 101
+5. amount = whatever 101
 6. claimants
 7. destination = receiver public key
 8. predicate = conditional 
