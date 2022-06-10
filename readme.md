@@ -78,3 +78,74 @@ source account is the account you've just created
           
 Then sign the transaction with the private key of both accounts. 
       
+ 
+
+## Sponsoring future reserves (create account)
+
+  This allows an account to pay the base reserve(funding) for another account
+  so you can create an account with balance 0, 
+  
+  To do this with create account:
+  
+A normal transaction with source account
+      
+1. Begin sponsoring future reserves
+sponsored ID is the account you're going to create
+2. Create account
+destination is the account you're going to create
+3. end sponsoring future reserves
+source account is the account you've just created
+          
+Then sign the transaction with the private key of both accounts. 
+      
+## Create and claim claimable balance
+
+1. generate 2 funded keypairs designated sender and receiver
+2. build transaction
+	source account = sender public key
+	fetch next sequence number
+	operation type = create claimable balance
+	asset = native
+	amount = whatevet 101
+	claimants
+		destination = receiver public key
+		predicate = conditional 
+		predicate type = not
+		not predicate = conditional
+		predicate type = time 
+		time type = relative
+		time value = 300
+		(i.e. not before 300 seconds) 
+	at the bottom sign in transaction signer
+3. add senders secret key
+	at bottom submit in transaction submitter
+4. submit transaction
+	"transaction succeeded with 1 operations
+
+wait 5 mins
+
+5. explore endpoints
+	select resource = claimable balance
+	all claimable balances
+	sponsor = sender public key 
+	submit
+	find and copy id e.g. 000000002e5bdf568c53a17f54b4957bf571c4aa6f5f7ec4471403de3754257270a60744
+
+6. build a transaction
+	source account = receiver public key 
+	fetch next sequence number
+	operation type = claim claimable balance
+	claimable balance id = paste id from #5
+	at bottom sign in transaction signer
+7. add receivers secret key
+	at bottom submit in transaction submitter
+8. submit transaction
+	"transaction succeeded with 1 operations
+
+9. explore endpoints
+	accounts
+	single account
+	account id = receiver public key
+	check balance - amount minus transaction fee
+		
+	
